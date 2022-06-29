@@ -1,0 +1,104 @@
+<section class="section">
+  <div class="container">
+    <h1>New Fruit</h1>
+    <div class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="label">Name :</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          placeholder="Name"
+          class="input"
+        />
+        <p
+          class="help is-danger walkP"
+          *ngIf="
+            (form.controls['name'].dirty || form.controls['name'].touched) &&
+            form.controls['name'].errors &&
+            form.controls['name'].errors['required']
+          "
+        >
+          Name is required!
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label class="label">Description :</label>
+        <input
+          type="text"
+          id="description"
+          formControlName="description"
+          placeholder="Name"
+          class="input"
+        />
+        <p
+          class="help is-danger walkP"
+          *ngIf="
+            (form.controls['description'].dirty ||
+              form.controls['name'].touched) &&
+            form.controls['description'].errors &&
+            form.controls['description'].errors['required']
+          "
+        >
+          Description is required!
+        </p>
+      </div>
+      <div class="form-group">
+        <label class="label">Image :</label>
+        <input
+          type="text"
+          id="image"
+          formControlName="image"
+          placeholder="Image"
+          class="input"
+        />
+        <p
+          class="help is-danger walkP"
+          *ngIf="
+            (form.controls['image'].dirty || form.controls['name'].touched) &&
+            form.controls['image'].errors &&
+            form.controls['image'].errors['required']
+          "
+        >
+          Image is required!
+        </p>
+      </div>
+      <div class="form-group">
+        <label class="label">Price :</label>
+        <input
+          type="number"
+          id="price"
+          formControlName="price"
+          placeholder="Price"
+          class="input"
+        />
+        <p
+          class="help is-danger walkP"
+          *ngIf="
+            (form.controls['price'].dirty || form.controls['name'].touched) &&
+            form.controls['price'].errors &&
+            form.controls['price'].errors['required']
+          "
+        >
+          Image is required!
+        </p>
+      </div>
+      <div class="field is-grouped">
+        <div class="control">
+          <button
+            type="submit"
+            class="button is-success"
+            (click)="onSubmit()"
+            [disabled]="!form.valid"
+          >
+            Save
+          </button>
+        </div>
+        <div class="control">
+          <button class="button is-warning">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
